@@ -1,30 +1,16 @@
 package hackumbc2023;
 
-public class MOD {
+// Manager
+public class MOD extends Dispatcher {
     public MOD() {
     }
 
-    public final void edit() {
+    public void edit() {
     }
 
-    public final void give() {
+    public void give() {
     }
 
-    public final void overlap() {
-    }
-
-    public void unassign() {
-    }
-
-    public void dropShift() {
-    }
-
-    public void postShift() {
-    }
-
-    public void viewShift() {
-    }
-
-    public void schedule() {
+    public void scheduleOverlap() {
     }
 }
