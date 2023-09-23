@@ -1,9 +1,7 @@
-package app.src.main.java.hackumbc2023;
+package hackumbc2023;
 
 public class App {
     public static void main(String[] args) {
-        var level = DriverLevel.CHARTER;
-
-        System.out.println(level);
+        System.out.println("Hello World!");
     }
 }
