@@ -12,6 +12,15 @@ public class Driver {
         this.level = level;
     }
 
+    public void unassign() {
+    }
+
+    public void dropShift() {
+    }
+
+    public void viewShifts() {
+    }
+
     public String getNumber(){
         return number;
     }
