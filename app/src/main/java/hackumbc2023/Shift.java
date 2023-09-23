@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 
 public class Shift {
 
+    String id;
     LocalDateTime start;
     LocalDateTime end;
     LocalDateTime leaveOut;
     LocalDateTime changeOver; 
 
-    public Shift(LocalDateTime start, LocalDateTime end, LocalDateTime leaveOut, LocalDateTime changeOver) {
+    public Shift(String id, LocalDateTime start, LocalDateTime end, LocalDateTime leaveOut, LocalDateTime changeOver) {
+        this.id = id;
         this.start = start;
         this.end = end;
         this.leaveOut = leaveOut; 
@@ -30,6 +32,14 @@ public class Shift {
 
     public void setEnd(LocalDateTime end) {
         this.end = end;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public LocalDateTime getLeaveOut() {
