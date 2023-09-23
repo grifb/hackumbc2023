@@ -16,7 +16,10 @@ public class MOD {
     public void Unassign() {
     }
 
-    public void PostShfit() {
+    public void DropShift() {
+    }
+
+    public void PostShift() {
     }
 
     public void DropShift() {
