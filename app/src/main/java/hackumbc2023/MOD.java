@@ -4,28 +4,27 @@ public class MOD {
     public MOD() {
     }
 
-    public final void Edit() {
+    public final void edit() {
     }
 
-    public final void Give() {
+    public final void give() {
     }
 
-    public final void Overlap() {
+    public final void overlap() {
     }
 
-    public void Unassign() {
+    public void unassign() {
     }
 
-    public void DropShift() {
+    public void dropShift() {
     }
 
-    public void PostShift() {
+    public void postShift() {
     }
 
-    public void DropShift() {
+    public void viewShift() {
     }
 
-    public void ViewShift() {
+    public void schedule() {
     }
-
 }
