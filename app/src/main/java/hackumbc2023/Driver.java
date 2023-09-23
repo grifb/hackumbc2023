@@ -1,13 +1,17 @@
 package hackumbc2023;
 
 public class Driver {
+    private int number;
+
     public Driver() {
     }
 
-    public void getNumber() {
+    public int getNumber() {
+        return number;
     }
 
-    public void setNumber() {
+    public void setNumber(int value) {
+        number = value;
     }
 
     public void unassign() {
