@@ -15,4 +15,16 @@ public class MOD {
 
     public void Unassign() {
     }
+
+    public PostShfit(){
+
+    }
+    public DropShift(){
+
+    }
+
+    public ViewShift(){
+
+    }
+
 }
