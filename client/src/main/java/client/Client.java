@@ -6,34 +6,7 @@ import java.util.Dictionary;
 import java.util.Map;
 import com.google.gson.Gson;
 
-enum RequestType {
-    VIEWSHIFT
-}
-
-enum ResponseType {
-    SHIFT,
-    INVALIDDATA
-}
-
-class Response {
-    private ResponseType responseType;
-    private Map<String, String> data;
-
-    public Response(ResponseType response, Map<String, String> data) {
-        this.responseType = response;
-        this.data = data;
-    }
-}
-
-class Request {
-    private RequestType request;
-    private Map<String, String> data;
-
-    public Request(RequestType request, Map<String, String> data) {
-        this.request = request;
-        this.data = data;
-    }
-}
+import dots.*;
 
 /**
  * The socket client for the DOTS Subleave
@@ -107,10 +80,7 @@ class DOTClient implements Closeable {
 }
 
 public class Client {
-
     public static void main(String[] args) throws IOException {
-        var d = new Driver();
-
         try (var client = new DOTClient("localhost", 4999)) {
 
             client.sendRequest(RequestType.VIEWSHIFT, Map.of(

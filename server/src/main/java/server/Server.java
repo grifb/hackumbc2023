@@ -6,14 +6,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-enum RequestType {
-    VIEWSHIFT
-}
-
-enum ResponseType {
-    SHIFT,
-    INVALIDDATA
-}
+import dots.*;
 
 class Shift {
     private String id;

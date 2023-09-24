@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":dots"));
     // GSON: JSON Serializing/Deserializing Library
     implementation("com.google.code.gson:gson:2.10.1")
 }
