@@ -8,14 +8,18 @@ public class Shift {
     LocalDateTime start;
     LocalDateTime end;
     LocalDateTime leaveOut;
-    LocalDateTime changeOver; 
+    LocalDateTime changeOver;
+    String assignedDriver = "unassigned";
+    DriverLevel required;
 
-    public Shift(String id, LocalDateTime start, LocalDateTime end, LocalDateTime leaveOut, LocalDateTime changeOver) {
+    public Shift(String id, LocalDateTime start, LocalDateTime end, LocalDateTime leaveOut, LocalDateTime changeOver, DriverLevel requirement) {
         this.id = id;
         this.start = start;
         this.end = end;
         this.leaveOut = leaveOut; 
-        this.changeOver = changeOver; 
+        this.changeOver = changeOver;
+        this.required = requirement;
+
     }
 
     public LocalDateTime getChangeOver() {
@@ -56,6 +60,18 @@ public class Shift {
 
     public void setStart(LocalDateTime start) {
         this.start = start;
+    }
+
+    public void setAssignedDriver(String driver) {
+        this.assignedDriver = driver;
+    }
+
+    public String getAssignedDriver() {
+        return assignedDriver;
+    }
+
+    public DriverLevel getRequired() {
+        return required;
     }
 
 }
