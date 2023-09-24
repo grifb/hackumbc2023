@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "hackumbc2023"
-include("app")
+include("dots", "client", "server")

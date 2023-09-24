@@ -16,12 +16,7 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit test framework.
-    testImplementation("junit:junit:4.13.2")
-
-    // This dependency is used by the application.
-    implementation("com.google.guava:guava:32.1.1-jre")
-
+    implementation(project(":dots"))
     // GSON: JSON Serializing/Deserializing Library
     implementation("com.google.code.gson:gson:2.10.1")
 }
@@ -35,5 +30,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("hackumbc2023.App")
+    mainClass.set("client.Client")
 }
