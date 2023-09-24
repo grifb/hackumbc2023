@@ -172,7 +172,7 @@ public class Server {
 
     private String deleteShift(String deleted) {
         for (Shift s : shifts) {
-            if (s.getId().equals(created.getId())) {
+            if (s.getId().equals(deleted) {
                 shifts.remove(s);
                 return "Sucess";
             }
