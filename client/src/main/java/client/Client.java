@@ -109,6 +109,8 @@ class DOTClient implements Closeable {
 public class Client {
 
     public static void main(String[] args) throws IOException {
+        var d = new Driver();
+
         try (var client = new DOTClient("localhost", 4999)) {
 
             client.sendRequest(RequestType.VIEWSHIFT, Map.of(
