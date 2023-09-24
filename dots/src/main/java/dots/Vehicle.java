@@ -1,6 +1,6 @@
-package hackumbc2023;
+package dots;
 
-public enum Vechicle {
+public enum Vehicle {
 
     VAN,
     CUTAWAY,

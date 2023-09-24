@@ -1,4 +1,4 @@
-package hackumbc2023;
+package dots;
 
 // Manager
 public class MOD extends Dispatcher {
