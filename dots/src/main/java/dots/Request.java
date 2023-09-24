@@ -7,6 +7,11 @@ public class Request {
 
     private Map<String, String> data;
 
+    public Request(RequestType request) {
+        this.request = request;
+        this.data = Map.of();
+    }
+
     public Request(RequestType request, Map<String, String> data) {
         this.request = request;
         this.data = data;

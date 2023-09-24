@@ -90,7 +90,16 @@ public class Client {
                     "id", "AB-01",
                     "startTime", "1695568614",
                     "endTime", "1695569614",
-                    "driverLevel", "2"
+                    "driverLevel", "1"
+            ));
+
+            System.out.println(client.getResponse());
+
+            client.sendRequest(RequestType.POSTSHIFT, Map.of(
+                    "id", "BE-43",
+                    "startTime", "149556863",
+                    "endTime", "1698894314",
+                    "driverLevel", "4"
             ));
 
             System.out.println(client.getResponse());
@@ -100,6 +109,12 @@ public class Client {
             ));
 
             System.out.println(client.getResponse());
+
+            client.sendRequest(RequestType.AVAILABLESHIFTS, Map.of());
+
+            System.out.println(client.getResponse());
+            System.out.println(client.getResponse());
+
         }
     }
 }

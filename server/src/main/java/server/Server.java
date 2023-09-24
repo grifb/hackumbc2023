@@ -107,6 +107,7 @@ public class Server {
                 }
 
                 break;
+
             case POSTSHIFT:
 
                 var startTime = LocalDateTime.ofEpochSecond(
@@ -123,16 +124,39 @@ public class Server {
 
                 var level = Integer.parseInt(data.get("driverLevel"));
 
+                DriverLevel levelEnum = null;
+
+                for (var l: DriverLevel.values()) {
+                    if (l.getValue() == level) {
+                        levelEnum = l;
+                        break;
+                    }
+                }
+
                 var s = new Shift(
                         data.get("id"),
                         startTime,
                         endTime,
-                        DriverLevel.values()[level]
+                        levelEnum
                 );
 
                 shifts.add(s);
 
                 server.respond("Added shift " + data.get("id"));
+                break;
+
+            case AVAILABLESHIFTS:
+
+                String response = "";
+
+                for (var shift : shifts) {
+                    if (shift.getAssignedDriver().equals("unassigned")) {
+                        response += String.format("ID: %s | START: %s | END: %s | REQUIRED: %s\n", shift.getId(), shift.getStart(), shift.getEnd(), shift.getRequired());
+                    }
+                }
+
+                server.respond(response);
+
                 break;
         }
     }
@@ -144,6 +168,8 @@ public class Server {
 
             System.out.println("Client has connected: " + server.acceptConnection());
 
+            handleRequest(server, shifts);
+            handleRequest(server, shifts);
             handleRequest(server, shifts);
             handleRequest(server, shifts);
 
