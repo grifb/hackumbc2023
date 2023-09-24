@@ -1,5 +1,6 @@
 package dots;
 
 public enum RequestType {
-    VIEWSHIFT
+    VIEWSHIFT,
+    POSTSHIFT,
 }

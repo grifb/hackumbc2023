@@ -4,6 +4,8 @@ import java.net.*;
 import java.io.*;
 import java.util.Dictionary;
 import java.util.Map;
+import java.util.Scanner;
+
 import com.google.gson.Gson;
 
 import dots.*;
@@ -81,10 +83,15 @@ class DOTClient implements Closeable {
 
 public class Client {
     public static void main(String[] args) throws IOException {
+
         try (var client = new DOTClient("localhost", 4999)) {
 
-            client.sendRequest(RequestType.VIEWSHIFT, Map.of(
-                    "id", "AB-01"
+            client.sendRequest(RequestType.POSTSHIFT, Map.of(
+                    "id", "AB-01",
+                    "startTime", "1695568614",
+                    "endTime", "1695569614",
+                    "assignedDriver", "unassigned",
+                    "driverLevel", "CDL"
             ));
 
             System.out.println(client.getResponse());
