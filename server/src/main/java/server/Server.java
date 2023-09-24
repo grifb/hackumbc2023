@@ -2,32 +2,15 @@ package server;
 
 import java.net.*;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.google.gson.Gson;
 
 import dots.*;
 
-class Shift {
-    private String id;
-
-    public String getId() {
-        return id;
-    }
-}
-
-class Request {
-    private RequestType request;
-    private Shift data;
-
-    public Shift getData() {
-        return data;
-    }
-
-    public RequestType getRequest() {
-        return request;
-    }
-}
 
 /**
  * The socket server for the DOTS Subleave
@@ -109,15 +92,61 @@ class DOTServer implements Closeable {
 
 public class Server {
 
+    public static void handleRequest(DOTServer server, ArrayList<Shift> shifts) throws IOException {
+        var request = server.parseRequest();
+        var data = request.getData();
+
+        switch (request.getRequest()) {
+            case VIEWSHIFT:
+
+                for (var shift : shifts) {
+                    if (shift.getId().equals(data.get("id"))) {
+                        server.respond("Found shift " + data.get("id"));
+                        break;
+                    }
+                }
+
+                break;
+            case POSTSHIFT:
+
+                var startTime = LocalDateTime.ofEpochSecond(
+                        Integer.parseInt(data.get("startTime")),
+                        0,
+                        ZoneOffset.of("Z")
+                );
+
+                var endTime = LocalDateTime.ofEpochSecond(
+                        Integer.parseInt(data.get("endTime")),
+                        0,
+                        ZoneOffset.of("Z")
+                );
+
+                var level = Integer.parseInt(data.get("driverLevel"));
+
+                var s = new Shift(
+                        data.get("id"),
+                        startTime,
+                        endTime,
+                        DriverLevel.values()[level]
+                );
+
+                shifts.add(s);
+
+                server.respond("Added shift " + data.get("id"));
+                break;
+        }
+    }
+
     public static void main(String[] args) throws IOException {
+        var shifts = new ArrayList<Shift>();
+
         try (var server = new DOTServer(4999)) {
 
             System.out.println("Client has connected: " + server.acceptConnection());
 
-            var request = server.parseRequest();
-            System.out.println(request.getData().getId());
+            handleRequest(server, shifts);
+            handleRequest(server, shifts);
 
-            server.respond("I got your message!");
         }
     }
 

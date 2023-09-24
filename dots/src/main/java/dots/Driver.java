@@ -51,7 +51,4 @@ public class Driver {
         this.name = newName;
     }
 
-    public void dropShift() {
-    }
-
 }

@@ -90,8 +90,13 @@ public class Client {
                     "id", "AB-01",
                     "startTime", "1695568614",
                     "endTime", "1695569614",
-                    "assignedDriver", "unassigned",
-                    "driverLevel", "CDL"
+                    "driverLevel", "2"
+            ));
+
+            System.out.println(client.getResponse());
+
+            client.sendRequest(RequestType.VIEWSHIFT, Map.of(
+                    "id", "AB-01"
             ));
 
             System.out.println(client.getResponse());
