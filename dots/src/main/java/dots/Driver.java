@@ -1,15 +1,21 @@
 package dots;
 
+import java.util.Map;
+
 public class Driver {
 	String number;
 	String name;
 	boolean is21;
     DriverLevel level;
-	
+
+    public Driver(){
+
+    }
     public Driver(String name, String number, boolean is21, DriverLevel level) {
     	this.name = name;
     	this.number = number;
         this.level = level;
+        this.is21 = is21;
     }
 
     public void unassign() {
